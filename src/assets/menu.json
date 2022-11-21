@@ -1,0 +1,17 @@
+
+
+ {"burgers":[ {"name": "New York", "kCal": 250, "cost" : 90, "ingridience": ["Beef","cheddar","fried egg"], "image":"https://whatshouldimakefor.com/wp-content/uploads/2019/07/IMG_8418-1.jpg"},
+{"name": "Chevre", "kCal": 450, "cost": 80, "ingridience": ["Chevre","Onions", "tomato"], "image":"https://www.thelastfoodblog.com/wp-content/uploads/2017/04/Halloumi-Burgers-thumb.jpg"},
+{"name": "Spicy", "kCal": 850, "cost": 100, "ingridience": ["Beef","Bacon","cheese", "Jalapenio","onions", "Bbq Sauce"],"image": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/86760481809763.5d0a7b669a7cf.jpg"}
+
+],
+"sideorderitems": [{"name": "small fries","kcal": 200,"cost": 20},{"name": "Large fries","kcal": 250,"cost": 30},
+{"name": "Chicken nuggets","kcal": 200,"cost": 50}],
+
+
+
+"drinks":[{ "name": "Cocacola", "kcal": 200, "cost": 30},
+{ "name": "Fanta", "kcal": 200, "cost": 20}],
+
+"inofoitems": [{"name": "Full name","text":"First-and Last name", "type":"text"}]
+}

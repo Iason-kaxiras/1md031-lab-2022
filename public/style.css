@@ -1,1 +1,30 @@
-/*empty*/
+.burger{
+    height: 500px;
+    width: 300px;
+    
+   
+    font-size: 12pt;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    vertical-align: top;
+}
+
+.burgermenu{
+    background-color: brown;
+    height: 600px;
+    width:1000px;
+    text-align: center;
+}
+
+.drinkmenu{
+    background-color : cyan;
+    height: 300px;
+    width:1000px;
+}
+
+.sideorders{
+    background-color : beige;
+    height: 200px;
+    width:1000px;
+}
+

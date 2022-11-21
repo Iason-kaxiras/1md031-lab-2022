@@ -64,6 +64,10 @@ io.on('connection', function (socket) {
 
   // Send list of orders when a client connects
   socket.emit('currentQueue', { orders: data.getAllOrders() });
+  //delivery time
+  socket.on("deliveryTime",function(){
+    socket.emit("deliveryTimeIs", Object.keys(data.getAllOrders()).length * 5)
+  });
 
   // When a connected client emits an "addOrder" message
   socket.on('addOrder', function (order) {
