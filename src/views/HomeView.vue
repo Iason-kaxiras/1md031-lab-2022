@@ -34,28 +34,28 @@
         <div>
         <label for="fullname">Full Name</label>
       </div>
-      <input type="text" id="fullname" name="fn" required="required" placeholder="First and last name" v-bind:style="{'width': '170px'}">
+      <input type="text" id="fullname" name="fn" required="required" placeholder="First and last name" v-model="fullname">
       </p>
       
       <p>
         <div>
         <label for="mail">E-mail</label>
       </div>
-      <input type="text" id="mail" name="fn" required="required" placeholder="E-mail adress" v-bind:style="{'width': '170px'}">
+      <input type="text" id="mail" name="fn" required="required" placeholder="E-mail adress" v-model="mail"/>
       </p>
 
       <p>
         <div>
         <label for="adress">Street</label>
       </div>
-      <input type="text" id="adress" name="fn" required="required" placeholder="Street name" v-bind:style="{'width': '170px'}">
+      <input type="text" id="adress" name="fn" required="required" placeholder="Street name" v-model="adress"/>
       </p>
 
       <p>
         <div>
         <label for="hnumber">House Number</label>
       </div>
-      <input type="number" id="hnumber" name="fn" required="required" placeholder="First name" v-bind:style="{'width': '170px'}">
+      <input type="number" id="hnumber" name="fn" required="required" placeholder="First name" v-model="hnumber">
       </p>
     
      
@@ -65,7 +65,7 @@
         <div>    
    <label for="payment">Payment Options</label>
         </div>
-   <select  id="payment" name="pay">
+   <select  id="payment" name="pay" v-model="payment">
        <option>Credit card</option>
        <option>swish</option>
        <option>Pay pal</option>
@@ -84,12 +84,12 @@
         <div>
   <input type="radio" id="gender" value="Male" v-model="gender"/>  <label for="male">Male</label> </div>
   <div>
-  <input type="radio" id="gender" value = "female" /> <label for="female">Female</label>
+  <input type="radio" id="gender" value = "female" v-model="gender"/> <label for="female">Female</label>
   </div>
   <div>
-  <input type="radio" id="gender" />  <label for="nonbinary">Non Binary</label>   </div>
+  <input type="radio" id="gender"  value = "nonbinary" v-model="gender"/>  <label for="nonbinary">Non Binary</label>   </div>
   <div>
-  <input type="radio" id="gender" /> <label for="undisclosed">Undisclosed</label>
+  <input type="radio" id="gender"  value = "undisclosed" v-model="gender"/> <label for="undisclosed">Undisclosed</label>
 </div>
 
 
@@ -150,7 +150,7 @@ export default {
       mail: "",
       gender:"",
       payment:"",
-      address:"",
+      adress:"",
 
 
       
@@ -178,7 +178,8 @@ export default {
     },
     addToOrder: function (event) {
     this.orderedBurgers[event.name] = event.amount;
-    console.log(this.orderedBurgers["New York"]);
+    console.log(event.name)
+    
 
     },
     setLocation: function(event){
@@ -199,17 +200,23 @@ export default {
       var offset = { x : event.currentTarget.getBoundingClientRect().left,
      y: event.currentTarget.getBoundingClientRect().top,
      }
-     console.log(this.orderedBurgers);
-     console.log(this.gender );
-   
+     
+     console.log(this.mail,this.adress,this.gender);
       
       socket.emit("addOrder", { orderId: this.getOrderNumber(),
                                 details: { x: this.locationx,
                                            y: this.locationy},
+                                customerInfo:{ gender: this.gender, 
+                                  name: this.fullname, 
+                                  mail: this.mail,
+                                  number: this.hnumber,
+                                payment: this.payment ,
+                              adress: this.adress},           
                                         
                                 orderItems: this.orderedBurgers
                               }
                  );
+                 console.log(this.orderedBurgers)
 
     }
   }

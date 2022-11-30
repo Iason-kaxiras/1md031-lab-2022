@@ -30,16 +30,17 @@
        }
     },
     methods:{
-        selectItem: function(){
-                this.$emit("selected",this.sideOrderitem.name)
-        },
+        
         addItem: function(){
         this.amountOrdered = this.amountOrdered + 1;
-        console.log(this.amountOrdered)
+        this.$emit("orderedBurger", {name: this.sideOrderitem.name, 
+                                amount:this.amountOrdered});
+                                console.log(this.sideOrderitem.name)
       },
       deleteItem: function(){
         this.amountOrdered = this.amountOrdered - 1;
-        console.log(this.amountOrdered)
+        this.$emit("orderedBurger", {name: this.sideOrderitem.name, 
+                                amount:this.amountOrdered});
       }
 
 

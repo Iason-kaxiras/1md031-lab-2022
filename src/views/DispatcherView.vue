@@ -1,13 +1,16 @@
 <template>
     <div id="orders">
       <div id="orderList">
-        <div v-for="(order, key) in orders" v-bind:key="'order'+key">
-          #{{ key }}: {{order.orderItems}}
-          
-          
-          <div>
-
+        <div v-for="(order, key) in orders" v-bind:key="'order'+key" v-bind:style="{'border-bottom': 'black solid'}">
+          #{{ key }}: 
+          <span v-for="(amount, item) in order.orderItems" v-bind:key="'item'+ amount">
+          {{item}} x {{amount}},
+          </span>
+          <div v-bind:style="{'font-size':'11px'}"> {{order.customerInfo.name}} ( {{order.customerInfo.mail}} 
+           , {{order.customerInfo.payment}} , {{order.customerInfo.gender}} )
           </div>
+          
+          
         </div>
         <button v-on:click="clearQueue">Clear Queue</button>
       </div>
@@ -42,6 +45,7 @@
   </script>
   <style>
   #orderList {
+    
     top:1em;
     left:1em;
     position: absolute;
